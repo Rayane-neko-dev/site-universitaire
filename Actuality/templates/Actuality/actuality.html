@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <!--  ************************* Page Title Starts Here ************************** -->
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Actualité</h2>
+                <ul>
+                    <li> <a href="{% url 'home'%}"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Cources</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ######## Page  Title End ####### -->
+     
+<div class="popular-cources pc2" id="actualité">
+    <div class="container2">
+        <div class="row courc-ro">
+            {% include "includes/posteMignature.html" %}
+            {% block posteMignature %}
+
+            {% endblock %}
+           
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Page Title -->
+<div class="page-nav no-margin row">
+    <div class="container">
+        <div class="row">
+            <h2>Détail de l'actualité</h2>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><i class="fas fa-angle-double-right"></i> {{ actualite.titre }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="popular-cources blogfac">
+    <div class="container">
+        <div class="formation-title">
+            <h2>{{ actualite.titre }}</h2>
+        </div>
+
+        <div class="paragform">
+            <p>{{ actualite.contenu }}</p>
+        </div>
+
+        {% if actualite.image %}
+            <img class="paragformimg" src="{{ actualite.image.url }}" alt="{{ actualite.titre }}">
+        {% else %}
+            <img class="paragformimg" src="{% static 'assets/images/default.jpg' %}" alt="Image par défaut">
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

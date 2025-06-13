@@ -1,0 +1,11 @@
+
+# Django
+*.sqlite3
+/media
+
+# VSCode or IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store

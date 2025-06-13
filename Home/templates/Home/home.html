@@ -1,0 +1,246 @@
+
+    {# templates/home.html #}
+    {% extends "base.html" %}
+    {% load static %}
+    {% block content %}
+    
+  <!-- ################# Slider Starts Here#######################--->
+     <div class="slider">
+        <!-- Set up your HTML -->
+        <div class="owl-carousel " id="slider1">
+            <div class="slider-img">
+                <div class="item">
+                    <div class="slider-img"><img src="{% static 'assets/images/slider/futur-designer.png'%}" alt=""></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                                <div class="slider-captions">
+                                    <h1 class="slider-title">U.M.B.B's new website</h1>
+                                    <p class="slider-text hidden-xs">dynamic and modern</p>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slider-img"><img src="{% static 'assets/images/slider/holite.jpg'%}" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                            <div class="slider-captions">
+                                <h1 class="slider-title">U.M.B.B's new website</h1>
+                                <p class="slider-text hidden-xs">dynamic and modern</p>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slider-img"><img src="{% static 'assets/images/slider/77.jpg'%}" alt=""></div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                            <div class="slider-captions">
+                                <h1 class="slider-title">U.M.B.B's new website</h1>
+                                <p class="slider-text hidden-xs">dynamic and modern</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+  
+
+	
+  <section class="a-societal-mission" >
+
+  
+ <div class="session-title" id="presentation">
+  <h2>by neko-dev</h2>
+ </div>
+
+  <section class="motdurecteur">
+    <p>
+        Ce site universitaire est un projet personnel développé avec Django pour le back-end, et HTML, SCSS, JavaScript et Bootstrap pour le front-end. Il illustre ma capacité à concevoir une application web complète, performante et responsive.
+        </p>
+        
+
+  </section>
+ 
+
+  </section>
+
+<a href=" https://github.com/Rayane-neko-dev"><input type="button" class="buttonR" id="agenda" value="En apprendre d'avantage"/></a>
+
+
+
+ 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+<!-- ################# Actualité #######################--->
+
+
+
+<div class="popular-cources">
+    <div class="container">
+        <div class="session-title" id="actu">
+            <h2>Actualité</h2>
+
+        </div>
+
+        <div class=" courc-ro"> 
+        <div class="popular-cources-slider owl-carousel" id="slider2">
+   
+            {% for post in actus %}
+            <div class="rayane"> 
+                <div class="courc-card">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'assets/images/cources/cource-1.jpg' %}" alt="default image">
+                    {% endif %}
+                    <div class="cource-det">
+                        <ul>
+                            <li>
+                                <h6>
+                                    <a href="{% url 'actuality_detail' post.actualite_id %}">
+                                        {{ post.titre }}
+                                    </a>
+                                </h6>
+                            </li>
+                            <li><i class="far fa-calendar-plus"></i> {{ post.date|date:"F d, Y" }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>  
+
+  <a href="{% url 'actuality'%}"> <input type="button" class="buttonR" value=" Toute l'actualité"/></a>
+   
+      </div>
+    
+   
+  
+                          
+
+  
+        
+  <!-- ################# University Number Starts Here#######################--->
+
+
+    <div class="doctor-message">
+        <div class="inner-lay">
+            <div class="container">
+               <div class="row session-title">
+                   <h2>Les chiffres clés</h2>
+               </div>
+                <div class="row">
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val="30899">000</h3>
+                        <span >Etudiants </span>
+                    </div>
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val="1374">000</h3>
+                        <span>Enseignants</span>
+                    </div>
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val=" 872">52+</h3>
+                        <span>Personnels administratifs et techniques</span>
+                    </div>
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val="7920">18+</h3>
+                        <span>Diplômés en graduation </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>     
+         
+         
+         
+          
+
+
+ <!-- ################# Agenda #######################---> 
+ 
+                   
+<div class="our-blog">
+    <div class="container">
+         <div class="session-title row">
+            <h2>Agenda</h2>
+        </div>
+        
+        <div class="row-blog row">
+            <div class="col-md-10 vbf mx-auto">
+                {% include "includes/Event.html" %}
+                {% block Event %}
+    
+                {% endblock %}
+                
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="containerbutton">   <a href="{% url 'agenda'%}">  <input type="button" class="buttonR" id="agenda" value=" Tout l'agenda"/> </a></div>
+            
+            
+            
+            <!--###########################################-->
+            
+            <div class="newsLetter">
+  <div class="containerNewsletter">
+	  <div class="item1">
+	       <h3 class="textInscription">Inscrivez-vous à notre newsletter</h3>
+
+	       <p class="textInformatif">
+	        Recevez les meilleures nouvelles sur une base hebdomadaire! Inscrivez-vous maintenant et ne le manquez pas.
+	       </p>
+	  
+	  </div>
+
+	
+		
+	  <div class="item2">
+	  
+	          <div class="items22">  <div class="formulaireContainer">
+		  <input wire:model="email" type="email" placeholder="Entrer votre Email" class="formulaireNewsletter">
+
+		  <button wire:click="subscribe" class="buttonNewsletter">
+		  S'abonner
+		  </button>
+	          </div> </div>
+	          <p class="petittext">
+	          Faites attention, vous recevrez toutes les nouvelles dans votre e-mail. merci
+	          </p>
+	  </div>
+  </div>
+</div>
+          
+
+{% endblock %}

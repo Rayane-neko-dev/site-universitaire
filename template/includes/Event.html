@@ -1,0 +1,26 @@
+{% load static %}
+{% for event in events %}
+<div class="blog-card row">
+    <div class="col-2">
+        <div class="date-box">
+            <span>{{ event.date|date:"M" }}</span>
+            <p>{{ event.date|date:"j" }}</p>
+            <small>{{ event.date|date:"Y" }}</small>
+        </div>
+    </div>
+    <div class="col-7 setv">
+        <h4>{{ event.titre }}</h4>
+        <ul>
+            <li>{{ event.contenu }}</li>
+        </ul>
+    </div>
+    <div class="col-3 img-cv">
+        {% if event.image %}
+            <img src="{{ event.image.url }}" alt="">
+        {% else %}
+            <img src="{% static 'assets/images/default.jpg' %}" alt="">
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+            
