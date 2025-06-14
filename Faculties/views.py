@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from .models import Faculty
 
-# Create your views here.
+def Faculties_view(request):
+    facs = Faculty.objects.all()
+    return render(request, 'Faculties/faculties.html' ,{'facs':facs})

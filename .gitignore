@@ -1,7 +1,7 @@
 
 # Django
 *.sqlite3
-/media
+/media 
 
 # VSCode or IDEs
 .vscode/

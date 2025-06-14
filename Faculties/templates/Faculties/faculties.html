@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Page Title -->
+<div class="cooking">
+    <div class="page-nav no-margin row" id="sliderfac">
+        <div class="container">
+            <div class="row">
+                <h2>Facultés et instituts</h2>
+                <ul>
+                    <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Facultés et instituts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Faculties Loop -->
+<div class="popular-cources pc3" id="actualité">
+    <div class="container3">
+        <div class="row courc-ro">
+            
+            {% for fac in facs %}
+            <div class="col-md-4">
+                <div class="courc-card faculte">
+                    {% if fac.image %}
+                        <img src="{{ fac.image.url }}" alt="{{ fac.nom }}" id="facu">
+                    {% else %}
+                        <img src="{% static 'images/default-faculty.jpg' %}" alt="Image par défaut" id="facu">
+                    {% endif %}
+                    <div class="cource-det2">
+                        <h6>{{ fac.nom }}</h6>
+                        <p>{{ fac.description }}</p>
+                        {% if fac.adresse %}
+                            <a class="linkfac" href="{{ fac.adresse }}" target="_blank">Faculty website <i class="fa fa-chevron-right"></i></a>
+                        {% endif %}
+                        <a id="linkfac" href="#" target="#" rel="#">Départements <i class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

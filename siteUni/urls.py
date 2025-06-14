@@ -19,6 +19,7 @@ from django.urls import path
 from Home import views as home_views
 from Actuality.views import actuality_view
 from Actuality.views import actuality_detailed_view
+from Faculties.views import Faculties_view
 from Agenda import views as agenda_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,5 +30,6 @@ urlpatterns = [
     path('Agenda/', agenda_views.Agenda, name='agenda'),
     path('actus/', actuality_view, name='actuality'),
     path('actus/<int:actualite_id>/', actuality_detailed_view, name='actuality_detail'),
+     path('Faculties/', Faculties_view, name='faculties'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
