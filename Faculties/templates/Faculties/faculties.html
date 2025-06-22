@@ -2,20 +2,76 @@
 {% load static %}
 {% block content %}
 
-<!-- Page Title -->
-<div class="cooking">
+
+
+
+  <!-- ################# Slider Starts Here#######################--->
+  <div class="slider">
+    <!-- Set up your HTML -->
+    <div class="owl-carousel " id="slider1">
+        <div class="slider-img">
+            <div class="item">
+                <div class="slider-img"><img src="{% static 'assets/images/slider/futur-designer.png'%}" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                            <div class="slider-captions">
+                                <h1 class="slider-title">U.M.B.B's new website</h1>
+                                <p class="slider-text hidden-xs">dynamic and modern</p>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-img"><img src="{% static 'assets/images/slider/holite.jpg'%}" alt=""></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                        <div class="slider-captions">
+                            <h1 class="slider-title">U.M.B.B's new website</h1>
+                            <p class="slider-text hidden-xs">dynamic and modern</p>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slider-img"><img src="{% static 'assets/images/slider/77.jpg'%}" alt=""></div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                        <div class="slider-captions">
+                            <h1 class="slider-title">U.M.B.B's new website</h1>
+                            <p class="slider-text hidden-xs">dynamic and modern</p>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                           
+
+    <!--  ************************* Page Title Starts Here ************************** -->
+    <div class="cooking">
     <div class="page-nav no-margin row" id="sliderfac">
         <div class="container">
             <div class="row">
                 <h2>Facultés et instituts</h2>
                 <ul>
-                    <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li> <a href="/home/dpr/Desktop/PFE/code/front-end/code/index.html"><i class="fas fa-home"></i> Acueil</a></li>
                     <li><i class="fas fa-angle-double-right"></i> Facultés et instituts</li>
                 </ul>
             </div>
         </div>
-    </div>
-</div>
+    </div></div>
 
 <!-- Faculties Loop -->
 <div class="popular-cources pc3" id="actualité">
@@ -36,7 +92,7 @@
                         {% if fac.adresse %}
                             <a class="linkfac" href="{{ fac.adresse }}" target="_blank">Faculty website <i class="fa fa-chevron-right"></i></a>
                         {% endif %}
-                        <a id="linkfac" href="#" target="#" rel="#">Départements <i class="fa fa-chevron-right"></i></a>
+                        <a id="linkfac" href="{% url 'faculty_detail' faculty_id=fac.id %}">Départements <i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>

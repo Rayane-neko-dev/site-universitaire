@@ -1,3 +1,10 @@
+
 from django.contrib import admin
 
-# Register your models here.
+from Bourse.models import Bourse
+
+class BourseAdmin(admin.ModelAdmin):
+
+ list_display = ('titre','date_limite') 
+
+admin.site.register(Bourse, BourseAdmin)

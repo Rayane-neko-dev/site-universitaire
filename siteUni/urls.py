@@ -20,16 +20,21 @@ from Home import views as home_views
 from Actuality.views import actuality_view
 from Actuality.views import actuality_detailed_view
 from Faculties.views import Faculties_view
+from Faculties.views import faculty_detail
 from Agenda import views as agenda_views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from Departments.views import departement_view
+from Bourse.views import bourse_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Home/', home_views.Home, name='home'),
     path('Agenda/', agenda_views.Agenda, name='agenda'),
     path('actus/', actuality_view, name='actuality'),
     path('actus/<int:actualite_id>/', actuality_detailed_view, name='actuality_detail'),
-     path('Faculties/', Faculties_view, name='faculties'),
+    path('Faculties/', Faculties_view, name='faculties'),
+    path('deps/', departement_view, name='departement'),
+    path('Faculties/<int:faculty_id>/', faculty_detail, name='faculty_detail'),
+    path('bourse/', bourse_view, name='bourse'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

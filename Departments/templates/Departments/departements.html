@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <!--  ************************* Page Title Starts Here ************************** -->
+    
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Départements</h2>
+                <ul>
+                    <li> <a href="/home/dpr/Desktop/PFE/code/front-end/code/index.html"><i class="fas fa-home"></i> Acueil</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Départements</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ######## Page  Title End ####### -->
+
+<div class="popular-cources pc3" id="actualité">
+    <div class="container3">
+        
+        <div class="row courc-ro">
+
+            {% for dep in deps %}
+            <div class="col-md-4">
+                <div class="courc-card faculte">
+                    {% if dep.image %}
+                        <img src="{{ dep.image.url }}" alt="{{ dep.titre }}" id="facu">
+                    {% else %}
+                        <img src="{% static 'images/default.jpg' %}" alt="Image par défaut" id="facu">
+                    {% endif %}
+                    <div class="cource-det2">
+                        <h6>{{ dep.titre }}</h6>
+                        <p>{{ dep.contenu }}</p>
+                        <a id="linkfac" href="#" target="_blank" rel="noopener">formations <i class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+{% endblock %}

@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Bourse
 
-# Create your views here.
+def bourse_view(request):
+    bourses = Bourse.objects.all()
+    return render(request, 'Bourse/bourse.html', {'bourses': bourses})

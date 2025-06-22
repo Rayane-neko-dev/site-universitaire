@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="page-nav no-margin row">
+    <div class="container">
+        <div class="row">
+            <h2>Offre de bourse</h2>
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><i class="fas fa-angle-double-right"></i> <i class="fa-solid fa-hand-holding-dollar"></i> Offre de bourse</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="our-instructor">
+    <div class="container2">
+        <div class="instruct-row row">
+            {% for bourse in bourses %}
+            <div class="col-md-3">
+                <div class="bourse-card">
+                    <div class="picpostbourse">
+                        <img class="bourseimg" src="{{ bourse.image.url }}" alt="">
+                        <h6>{{ bourse.titre }}</h6>
+                        <p>date limite: {{ bourse.date_limite }}</p>
+                    </div>
+                    <section class="popup2">
+                        <button class="conditions2">note d'information</button>
+                        <span class="overlay2"></span>
+                        <div class="conditionpopup2">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            <h2 id="popuptitle2">Note d'information</h2>
+                            <ul>
+                                <li><a href="{{ bourse.uploaded_file.url }}" download>Télécharger le fichier</a></li>
+                            </ul>
+                            <button class="closebutton2">fermer</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
