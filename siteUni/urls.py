@@ -26,6 +26,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from Departments.views import departement_view
 from Bourse.views import bourse_view
+from JobOportunities.views import job_view
+from Annuaire.views import Annuaire_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Home/', home_views.Home, name='home'),
@@ -36,5 +38,7 @@ urlpatterns = [
     path('deps/', departement_view, name='departement'),
     path('Faculties/<int:faculty_id>/', faculty_detail, name='faculty_detail'),
     path('bourse/', bourse_view, name='bourse'),
+    path('job/', job_view, name='job'),
+    path('annuaire/', Annuaire_view, name='annuaire'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <!--  ************************* Page Title Starts Here ************************** -->
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Annuaire</h2>
+                <ul>
+                    <li> <a href="#"><i class="fas fa-home"></i> Acueil</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Annuaire</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="our-blog bb3 pc2">
+        <div class="container">
+            <div class="row-blog row">
+                <div class="col-md-10 vbf mx-auto">
+    
+                    {% for contact in contacts %}
+                        <div class="Annuaire-card row">
+                            <div class="col-2">
+                                <div class="phone-box">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                            </div>
+    
+                            <div class="col-7 setv" style="margin-left: 1%;">
+                                <h4>{{ contact.nom }}</h4>
+                                <ul class="inline-list">
+                                    {% if contact.mobile_1 %}
+                                        <li><i class="fa-solid fa-phone"></i> : {{ contact.mobile_1 }}</li>
+                                    {% endif %}
+                                    {% if contact.mobile_2 %}
+                                        <li><i class="fa-solid fa-phone"></i> : {{ contact.mobile_2 }}</li>
+                                    {% endif %}
+                                    {% if contact.mobile_3 %}
+                                        <li><i class="fa-solid fa-phone"></i> : {{ contact.mobile_3 }}</li>
+                                    {% endif %}
+                                    {% if contact.fax %}
+                                        <li>Fax : {{ contact.fax }}</li>
+                                    {% endif %}
+                                    {% if contact.email %}
+                                        <li><i class="fa-solid fa-envelope"></i> : {{ contact.email }}</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+    
+                            <div class="col-3 img-phone" style="max-width: 20%;">
+                                <img src="{% static 'assets/images/vue-face-du-telephone-retro.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>Aucun contact trouvé.</p>
+                    {% endfor %}
+    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

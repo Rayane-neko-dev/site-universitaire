@@ -2,79 +2,97 @@
 {% load static %}
   <!-- ################# Our Footer Starts Here#######################---> 
   
-                  
-  <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 about">
-                <h2>About Us</h2>
-                <p>Université M'Hamed BOUGARA de Boumerdès. </p>
-                
-                <div class="foot-address">
-                    <div class="icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="addet">
-                        Faculté des Sciences. Route de la Gare Ferroviaire - Boumerdes 35000, Algérie 
-                    </div>
-                </div>
-                <div class="foot-address">
-                    <div class="icon">
-                        <i class="far fa-envelope-open"></i>
-                    </div>
-                    <div class="addet">
-                        scolarite-fs@univ-boumerdes.dz <br>
-                     
-                    </div>
-                </div>
-                <div class="foot-address">
-                    <div class="icon">
-                         <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="addet">
-                        
-Tél: (024) 79 90 19  
- <br>
-                 fax: (024) 79 90 07
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 fotblog">
-                <h2>From latest Blog</h2>
-                <div class="blohjb">
-                    <p>dignissim. Integer tempor facilisis malesuada. Proin ac varius velit, tincidunt condimentum</p>
-                    <span>22-1-2019</span>
-                </div>
-                <div class="blohjb">
-                    <p>dignissim. Integer tempor facilisis malesuada. Proin ac varius velit, tincidunt condimentum</p>
-                    <span>22-1-2019</span>
-                </div>
-                <div class="blohjb">
-                    <p>dignissim. Integer tempor facilisis malesuada. Proin ac varius velit, tincidunt condimentum</p>
-                    <span>22-1-2019</span>
-                </div>
-            </div>
-            <div class="col-md-3 glink">
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-angle-double-right"></i>Université</a></li>
-                    <li><a href="about_us.html"><i class="fas fa-angle-double-right"></i>Facultés</a></li>
-                    <li><a href="services.html"><i class="fas fa-angle-double-right"></i>Formations</a></li>
-                    <li><a href="blog.html"><i class="fas fa-angle-double-right"></i>Recherche</a></li>
-                    <li><a href="pricing.html"><i class="fas fa-angle-double-right"></i>Gallery</a></li>
-                    <li><a href="contact_us.html"><i class="fas fa-angle-double-right"></i>coopéeration</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 tags">
-                <h2>Easy Tags</h2>
-                <ul>
-                    <li>Université</li>
-                    <li>Boumerdes</li>
-                    <li>informatique</li>
-                    <li>science</li>
-                  
-                 
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+  <!DOCTYPE html>
+  <html lang="fr">
+  <head>
+      <meta charset="UTF-8">
+      <title>{% block title %}Université Boumerdès{% endblock %}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/plugins/slider/css/owl.carousel.min.css' %}">
+      <script src="https://kit.fontawesome.com/c2599970d3.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  
+      {% block content %}
+      <!-- Le contenu de chaque page ira ici -->
+      {% endblock %}
+  
+      <!-- FOOTER COMMUN -->
+      <footer>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-3 about">
+                      <h2>About Us</h2>
+                      <p>Université M'Hamed BOUGARA de Boumerdès.</p>
+                      <div class="foot-address">
+                          <div class="icon">
+                              <i class="fas fa-map-marker-alt"></i>
+                          </div>
+                          <div class="addet">
+                              Faculté des Sciences. Route de la Gare Ferroviaire - Boumerdes 35000, Algérie 
+                          </div>
+                      </div>
+                      <div class="foot-address">
+                          <div class="icon">
+                              <i class="far fa-envelope-open"></i>
+                          </div>
+                          <div class="addet">
+                              scolarite-fs@univ-boumerdes.dz
+                          </div>
+                      </div>
+                      <div class="foot-address">
+                          <div class="icon">
+                              <i class="fas fa-mobile-alt"></i>
+                          </div>
+                          <div class="addet">
+                              Tél: (024) 79 90 19 <br> fax: (024) 79 90 07
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-3 fotblog">
+                      <h2>From latest Blog</h2>
+                      <div class="blohjb">
+                          <p>dignissim. Integer tempor facilisis malesuada...</p>
+                          <span>22-1-2019</span>
+                      </div>
+                      <div class="blohjb">
+                          <p>dignissim. Integer tempor facilisis malesuada...</p>
+                          <span>22-1-2019</span>
+                      </div>
+                  </div>
+                  <div class="col-md-3 glink">
+                      <ul>
+                          <li><a href="#"><i class="fas fa-angle-double-right"></i>Université</a></li>
+                          <li><a href="#"><i class="fas fa-angle-double-right"></i>Facultés</a></li>
+                          <li><a href="#"><i class="fas fa-angle-double-right"></i>Formations</a></li>
+                          <li><a href="#"><i class="fas fa-angle-double-right"></i>Recherche</a></li>
+                          <li><a href="#"><i class="fas fa-angle-double-right"></i>Galerie</a></li>
+                          <li><a href="#"><i class="fas fa-angle-double-right"></i>Coopération</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-3 tags">
+                      <h2>Easy Tags</h2>
+                      <ul>
+                          <li>Université</li>
+                          <li>Boumerdes</li>
+                          <li>informatique</li>
+                          <li>science</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </footer>
+  
+      <!-- JS Scripts -->
+      <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+      <script src="{% static 'assets/js/popper.min.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'assets/plugins/slider/js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'assets/js/script.js' %}"></script>
+  
+  </body>
+  </html>
+  

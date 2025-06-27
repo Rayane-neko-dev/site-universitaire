@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <!--  ************************* Page Title Starts Here ************************** -->
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Offre d'emploie</h2>
+                <ul>
+                    <li> <a href="/home/dpr/Desktop/PFE/code/front-end/code/index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Cources</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ######## Page  Title End ####### -->
+
+<div class="our-instructor">
+    <div class="container2">
+        <div class="instruct-row row">
+
+            {% for job in jobs %}
+            <div class="col-md-3">
+                <div class="instruct-card">
+                    <h6 class="fac">{{ job.faculte_rattachement.nom }}</h6>
+                    <div class="picpost">
+                        {% if job.image %}
+    <img src="{{ job.image.url }}" alt="">
+{% else %}
+    <img src="{% static 'assets/images/default_job.png' %}" alt="image par défaut">
+{% endif %}
+
+                        <h6>{{ job.intitule_poste }}</h6>
+                        <p>{{ job.details}}</p>
+                    </div>
+                    <section class="popup">
+                        <button class="conditions">termes et conditions</button>
+                        <span class="overlay"></span>
+                        <div class="conditionpopup">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <h2 id="popuptitle">Mode et Conditions de Recrutement</h2>  
+                            <ul>
+                                <li>{{ job.prerequis_recrutement }}</li>
+                            </ul>
+                            <button class="closebutton">fermer</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
