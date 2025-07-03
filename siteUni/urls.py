@@ -28,6 +28,7 @@ from Departments.views import departement_view
 from Bourse.views import bourse_view
 from JobOportunities.views import job_view
 from Annuaire.views import Annuaire_view
+from Departments.views import departement_detailed_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Home/', home_views.Home, name='home'),
@@ -40,5 +41,6 @@ urlpatterns = [
     path('bourse/', bourse_view, name='bourse'),
     path('job/', job_view, name='job'),
     path('annuaire/', Annuaire_view, name='annuaire'),
+    path('Faculties/<int:faculty_id>/<int:departement_id>/', departement_detailed_view, name='departement_detailed'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -35,7 +35,10 @@
                     <div class="cource-det2">
                         <h6>{{ dep.titre }}</h6>
                         <p>{{ dep.contenu }}</p>
-                        <a id="linkfac" href="#" target="_blank" rel="noopener">formations <i class="fa fa-chevron-right"></i></a>
+                        <a id="linkfac" href="{% url 'departement_detailed' faculty_id=dep.faculty.id departement_id=dep.departement_id %}">
+                            formations <i class="fa fa-chevron-right"></i>
+                        </a>
+                        
                     </div>
                 </div>
             </div>
