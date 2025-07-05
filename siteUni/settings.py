@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.forms',
+    "widget_tweaks",
     'Actuality',
     'Agenda',
     'Annuaire',
@@ -149,3 +151,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#cnfigure ici ton veritable serveur 
+
+#EMAIL_HOST = 'smtp.example.com'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = 'exemple@gmail.com'
+#EMAIL_HOST_PASSWORD = 'ton-mot-de-passe'
