@@ -21,6 +21,7 @@ from Actuality.views import actuality_view
 from Actuality.views import actuality_detailed_view
 from Faculties.views import Faculties_view
 from Faculties.views import faculty_detail
+from Formations.views import formation_detail
 from Agenda import views as agenda_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -38,6 +39,7 @@ urlpatterns = [
     path('Faculties/', Faculties_view, name='faculties'),
     path('deps/', departement_view, name='departement'),
     path('Faculties/<int:faculty_id>/', faculty_detail, name='faculty_detail'),
+    path('Formation/<int:formation_id>/', formation_detail, name='formation_detail'),  
     path('bourse/', bourse_view, name='bourse'),
     path('job/', job_view, name='job'),
     path('annuaire/', Annuaire_view, name='annuaire'),

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- SLIDER SECTION -->
+<div class="slider">
+    <div class="owl-carousel " id="slider1">
+        <div class="slider-img">
+            <div class="item">
+                <div class="slider-img"><img src="{% static 'assets/images/slider/77.jpg' %}" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                            <div class="slider-captions">
+                                <h1 class="slider-title">{{ formation.titre }}</h1>
+                                <p class="slider-text hidden-xs">département {{ formation.departement.titre }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- KEY FEATURES SECTION -->
+<div class="key-features">
+    <div class="container">
+        <div class="row key-row no-margin">
+            <div class="box c1">
+                <i class="fas fa-solid fa-certificate"></i>
+                <h>crédits</h>
+                <p>{{ formation.credits }} pts</p>
+            </div>
+            <div class="box c2">
+                <i class="fas fa-solid fa-clock"></i>
+                <h>Durée</h>
+                <p>{{ formation.duree }}</p>
+            </div>
+            <div class="box c1">
+                <i class="fas fa-solid fa-graduation-cap"></i>
+                <h>Niveau d'études visé</h>
+                <p>{{ formation.niveau_etude }}</p>
+            </div>
+            <div class="box c2">
+                <i class="fas fa-globe-americas"></i>
+                <h>Langue des enseignements</h>
+                <p>{{ formation.langue_enseignement }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE TITLE SECTION -->
+<div class="cooking">
+    <div class="page-nav no-margin row" id="sliderfac">
+        <div class="container" style="margin-top: 5%;">
+            <div class="row">
+                <h2>{{ formation.titre }}</h2>
+                <ul>
+                    <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Facultés et instituts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CAPITALISATION & PROGRESSION SECTION -->
+<div class="popular-cources pc3">
+    <div class="container">
+        <div class="formation-title">
+            <h2>Capitalisation</h2>
+        </div>
+        <div class="paragform">
+            <p>{{ formation.capitalisation|linebreaks }}</p>
+        </div>
+
+        <div class="formation-title">
+            <h2>La progression en {{ formation.titre }}</h2>
+        </div>
+        <div class="paragform">
+            <p>{{ formation.progression|linebreaks }}</p>
+        </div>
+
+        <div class="formation-title">
+            <h2>Spécialités</h2>
+        </div>
+
+        {% for speciality in specialities %}
+            <h2 class="second_h2">{{ speciality.name }} <i class="ri-arrow-down-s-line dropdown__arrow"></i></h2>
+            <div class="change_text tableau">
+                <ul>
+                    {% for semester in speciality.semesters.all %}
+                    <li>
+                        <h2 class="second_h2">Semestre {{ semester.semester_number }}</h2>
+                        <div class="change_text tableau">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nom du cours</th>
+                                        <th>Volume horaire</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for course in semester.courses.all %}
+                                    <tr>
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td>{{ course.name }}</td>
+                                        <td>{{ course.time_volume }} h</td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="3">Aucun cours défini pour ce semestre.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li><p>Aucun semestre défini pour cette spécialité.</p></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% empty %}
+            <p>Aucune spécialité définie pour cette formation.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
