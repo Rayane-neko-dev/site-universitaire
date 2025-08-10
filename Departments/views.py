@@ -9,4 +9,8 @@ def departement_view(request):
 
 def departement_detailed_view(request, faculty_id, departement_id):
     deps = get_object_or_404(Departement, departement_id=departement_id, faculty__id=faculty_id)
-    return render(request, 'Departments/departement_detail.html', {'deps': deps})
+    formations = deps.formations.all()  # thanks to related_name='formations' in Formation model
+    return render(request, 'Departments/departement_detail.html', {
+        'deps': deps,
+        'formations': formations,
+    })

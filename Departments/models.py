@@ -1,14 +1,14 @@
 from django.db import models
 from Faculties.models import Faculty
 from multiselectfield import MultiSelectField
-
+'''
 FORMATIONS_DISPO = (
     ('M', 'Master'),
     ('L', 'Licence'),
     ('LP', 'Licence Pro'),
     ('SC', 'Système classique'),
 )
-
+'''
 class Departement(models.Model):
     departement_id = models.IntegerField()
     image = models.ImageField(upload_to='images/departement', null=True, blank=True)
@@ -21,12 +21,15 @@ class Departement(models.Model):
         null=True,
         blank=True
     )
+    def __str__(self):
+        return self.titre
+
+'''
     formation_dispo = MultiSelectField(
         choices=FORMATIONS_DISPO,
         default=[choix[0] for choix in FORMATIONS_DISPO],
         max_choices=len(FORMATIONS_DISPO),
         blank=True,
     )
+'''
 
-    def __str__(self):
-        return self.titre

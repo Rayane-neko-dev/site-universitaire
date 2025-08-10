@@ -2,50 +2,39 @@
 {% load static %}
 {% block content %}
 
-    <!--  ************************* Page Title Starts Here ************************** -->
-    <div class="page-nav no-margin row">
-        <div class="container">
-            <div class="row">
-                <h2>FORMATIONS</h2>
-                <ul>
-                    <li> <a href="/home/dpr/Desktop/PFE/code/front-end/code/index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><i class="fas fa-angle-double-right"></i> Cources</li>
-                </ul>
-            </div>
+<!--  ************************* Page Title Starts Here ************************** -->
+<div class="page-nav no-margin row">
+    <div class="container">
+        <div class="row">
+            <h2>FORMATIONS</h2>
+            <ul>
+                <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+                <li><i class="fas fa-angle-double-right"></i> Formations</li>
+            </ul>
         </div>
     </div>
-
-    <!-- ######## Page  Title End ####### -->
+</div>
+<!-- ######## Page  Title End ####### -->
 
 <div class="popular-cources pc2">
-  <div class="container2">
+    <div class="container2">
 
-      <div class="row courc-ro" style="justify-content: space-between; margin-top: 2%;">
+        <div class="row courc-ro" style="justify-content: space-between; margin-top: 2%;">
 
-        {% for formation in deps.formation_dispo %}
-          <figure>
-            {% if formation == 'L' %}
-              <img src="{% static 'assets/images/formations/master.jpg' %}" />
-              <figcaption>Licence</figcaption>
+            {% for formation in formations %}
+             <a href="{% url 'formation_detail' deps.faculty.id deps.departement_id formation.formation_id %}">
+            <figure>
+                        <img src="{% static 'assets/images/formations/master.jpg' %}" alt="Formation" />
+               
+                        <figcaption>{{ formation.niveau_etude }}</figcaption>
+                
+              
+            </figure>  </a>
+            {% endfor %}
 
-            {% elif formation == 'M' %}
-              <img src="{% static 'assets/images/formations/group-diverse-graduation-students-raising-their-hands-air-university.jpg' %}" />
-              <figcaption>Master</figcaption>
+        </div>
 
-            {% elif formation == 'SC' %}
-              <img src="{% static 'assets/images/formations/group-diverse-graduation-students-raising-their-hands-air-university.jpg' %}" />
-              <figcaption>Système classique</figcaption>
-
-            {% elif formation == 'LP' %}
-              <img src="{% static 'assets/images/formations/Licence prof.png' %}" />
-              <figcaption>Licence Pro</figcaption>
-            {% endif %}
-          </figure>
-        {% endfor %}
-
-      </div>
-
-  </div>
+    </div>
 </div>
 
 {% endblock %}
